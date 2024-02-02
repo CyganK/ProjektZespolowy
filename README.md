@@ -18,21 +18,25 @@ Repozytorium składa się z następujących katalogów i plików:
 
  
 
-- `Bike`, `Car`: Katalogi zawierające obrazy do procesów trenowania i testowania.
+- `Car-Bike`: Katalogi zawierające obrazy do procesów trenowania i testowania umieszczone w folderze Car-Bike_dataset pobranym z podanej strony.
 
-- `Dataset`: Podzielone zbiory danych do trenowania i testowania.
+- `Dataset`: Podzielone zbiory danych do trenowania i testowania dla cros vall.
 
 - `Dataset_5_percent`: Mniejsze wersje zbiorów danych, zawierające 5% oryginalnych danych.
 
-- `Dataset_Podzielona`: Specjalnie podzielone zbiory danych do eksperymentów.
+- `Dataset_Podzielona`: Specjalnie podzielone zbiory danych do eksperymentów dla cros vall.
 
-- `Dataset_Siec`: Zbiory danych dostosowane do trenowania sieci neuronowej.
+- `Dataset_Siec_Podzielona`: Specjalnie podzielone zbiory danych do eksperymentów dla sieci konwolucyjnej.
+
+- `Dataset_Siec`: Zbiory danych dostosowane do trenowania sieci konwolucyjnej.
 
 - Skrypty Pythona:
 
   - `convert.py`: Skrypt do konwersji danych.
 
-  - `cross_vall_result.txt`: Wyniki walidacji krzyżowej.
+  - `cross_vall_result.txt`: Wyniki pliku custom_dataset_cros_vall.py.
+
+  - `siec_result.txt`: Wyniki pliku siec_konwolucyjna_pytorch2.py.
 
   - `custom_dataset_cros_vall.py`: Skrypt do przeprowadzania walidacji krzyżowej.
 
@@ -42,7 +46,7 @@ Repozytorium składa się z następujących katalogów i plików:
 
   - `podziel_siec.py`, `podziel.py`: Skrypty do dzielenia zbiorów danych.
 
-  - `siec_konwolucyjna_pytorch2.py`: Główny skrypt do trenowania sieci neuronowej.
+  - `siec_konwolucyjna_pytorch2.py`: Główny skrypt do trenowania sieci konwolucyjnej.
 
  
 

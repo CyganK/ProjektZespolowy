@@ -25,7 +25,7 @@ def move_random_images(source_folder, destination_folder, percentage=5):
         os.makedirs(os.path.dirname(destination_path), exist_ok=True)
         
         # Przenoszenie pliku
-        shutil.move(file_path, destination_path)
+        shutil.copy2(file_path, destination_path)
         print(f"Przeniesiono {file_path} -> {destination_path}")
 
 # Ścieżka do folderu źródłowego

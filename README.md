@@ -34,9 +34,9 @@ Repozytorium składa się z następujących katalogów i plików:
 
   - `convert.py`: Skrypt do konwersji danych.
 
-  - `cross_vall_result.txt`: Wyniki pliku custom_dataset_cros_vall.py.
+  - `result_custom_dataset_cros_vall.txt`: Wyniki pliku custom_dataset_cros_vall.py.
 
-  - `siec_result.txt`: Wyniki pliku siec_konwolucyjna_pytorch2.py.
+  - `result_siec_konwolucyjna_pytorch2.txt`: Wyniki pliku siec_konwolucyjna_pytorch2.py.
 
   - `custom_dataset_cros_vall.py`: Skrypt do przeprowadzania walidacji krzyżowej.
 
@@ -47,6 +47,8 @@ Repozytorium składa się z następujących katalogów i plików:
   - `podziel_siec.py`, `podziel.py`: Skrypty do dzielenia zbiorów danych.
 
   - `siec_konwolucyjna_pytorch2.py`: Główny skrypt do trenowania sieci konwolucyjnej.
+
+  - `run.py`: Plik uruchamiający wszystkie skrypty w odpowiedniej kolejności.
 
  
 
@@ -93,6 +95,8 @@ Repozytorium składa się z następujących katalogów i plików:
 - Przeniesienie danych do ostatecznych folderów - w przypadku sieci konwolucyjnej dodanie klas - w przypadku cross vall usunięcie kolejnych danych aby skrócić czas(move.py, move_siec.py)
 
 - Uruchomienie algorytmów Deep Learning
+
+- Opcjonalnie po przygotowaniu zbioru danych można uruchomic plik `run.py` który uruchomi wszystko w odpowiedniej kolejności i stworyz pliki wynikowe dla dwóch skryptów deep learningowych
 
  
 

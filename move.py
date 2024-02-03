@@ -2,7 +2,7 @@ import os
 import shutil
 import random
 
-def move_random_images(source_folder, destination_folder, percentage=3):
+def move_random_images(source_folder, destination_folder, percentage=20):
     # Zbieranie wszystkich ścieżek do plików obrazowych
     image_paths = []
     for subdir, dirs, files in os.walk(source_folder):

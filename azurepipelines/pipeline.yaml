@@ -18,6 +18,7 @@ stages:
     steps:
     - checkout: self
       persistCredentials: true
+      clean: true
     - script: |
         terraform init
         terraform plan -out=tfplan

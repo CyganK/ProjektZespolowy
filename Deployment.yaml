@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ProjektZespolowy
+  name: projektzespolowy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ProjektZespolowy
+      app: projektzespolowy
   template:
     metadata:
       labels:
-        app: ProjektZespolowy
+        app: projektzespolowy
     spec:
       containers:
-      - name: ProjektZespolowy
+      - name: projektzespolowy
         image: projektzespolowyacr.azurecr.io/projektzespolowy:latest
         ports:
         - containerPort: 80

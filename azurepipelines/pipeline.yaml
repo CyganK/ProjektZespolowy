@@ -38,10 +38,6 @@ stages:
           }
         pwsh: true
 
-
-
-- stage: BuildAndPush
-  jobs:
   - job: Build
     pool:
       vmImage: 'ubuntu-latest'
@@ -62,8 +58,6 @@ stages:
         tags: |
           $(tag)
 
-- stage: DeployToAKS
-  jobs:
   - job: Deploy
     pool:
       vmImage: 'ubuntu-latest'

@@ -50,7 +50,7 @@ stages:
         inlineScript: |
           az login --service-principal --username "ddfd42e1-e9a2-44fb-aa12-036b044748d2" --password "mVd8Q~sQhaEhKfSeTIkPZOm1Yh9pOmdQ2phZzb4N" --tenant "7babbace-799f-4cbd-991a-54446c9b1c8e"
           az acr login --name $(container_registry_name)
-          
+
     - task: Docker@2
       inputs:
         repository: $(container_registry_login_server)/$(repo)
@@ -65,5 +65,5 @@ stages:
         scriptType: 'bash'
         scriptLocation: 'inlineScript'
         inlineScript: |
-          az aks get-credentials --resource-group <TwojaGrupaZasobow> --name <TwojeAKSClusterName>
+          az aks get-credentials --resource-group $(resource_group_name) --name $(kubernetes_cluster_name)
           kubectl set image deployment/<deploymentName> <containerName>=$(containerRegistry)/$(imageRepository):$(tag)

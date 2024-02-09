@@ -48,3 +48,14 @@ output "kubernetes_cluster_fqdn" {
   value = azurerm_kubernetes_cluster.aks.fqdn
   description = "Pełna nazwa domenowa (FQDN) klastra Kubernetes."
 }
+
+output "storage_account_connection_string" {
+  value = azurerm_storage_account.sa.primary_connection_string
+  description = "Connection string for the storage account"
+}
+
+output "storage_account_blob_name" {
+  value = azurerm_storage_container.blob_container.name
+  description = "Blob Name"
+}
+

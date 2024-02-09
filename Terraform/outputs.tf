@@ -13,6 +13,11 @@ output "container_registry_login_server" {
   description = "Adres serwera logowania dla Azure Container Registry."
 }
 
+output "container_registry_name" {
+  value = azurerm_container_registry.acr.name
+  description = "Nazwa Azure Container Registry."
+}
+
 output "container_registry_admin_username" {
   value = azurerm_container_registry.acr.admin_username
   description = "Nazwa użytkownika admina dla Azure Container Registry (jeśli włączono)."

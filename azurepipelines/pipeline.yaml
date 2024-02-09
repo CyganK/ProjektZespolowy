@@ -7,6 +7,7 @@ resources:
 variables:
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
+  repo: "projektzespolowy"
 
 stages:
 - stage: Terraform
@@ -38,16 +39,24 @@ stages:
         pwsh: true
 
 
+
 - stage: BuildAndPush
   jobs:
   - job: Build
     pool:
       vmImage: 'ubuntu-latest'
     steps:
+    - task: AzureCLI@2
+      displayName: Login to ACR
+      inputs:
+        azureSubscription: ProjektZespolowySC
+        scriptType: 'pscore'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          az acr login $(container_registry_name)
     - task: Docker@2
       inputs:
-        containerRegistry: $(containerRegistry)
-        repository: $(imageRepository)
+        repository: $(container_registry_login_server)/$(repo)
         command: 'buildAndPush'
         Dockerfile: $(dockerfilePath)
         tags: |

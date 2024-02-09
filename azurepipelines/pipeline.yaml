@@ -15,10 +15,6 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-    - task: UseTerraform@0
-      inputs:
-        version: $(terraformVersion)
-
     - script: |
         terraform init
         terraform plan -out=tfplan

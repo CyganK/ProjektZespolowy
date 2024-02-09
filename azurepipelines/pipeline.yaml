@@ -45,11 +45,10 @@ stages:
         pwsh: true
 
     - script: |
-        git config --global user.email pipeline@demo.com & git config --global user.name "Pipeline"
-      workingDirectory: $(System.DefaultWorkingDirectory)
-
-    - script: |
-        git commit -m "deployment $(Build.BuildNumber)"
+        git config --global user.email pipeline@demo.com
+        git config --global user.name "Pipeline"
+        git checkout main
+        git commit -a -m "deployment $(Build.BuildNumber)"
         git push 
       displayName: push changes
       workingDirectory: $(System.DefaultWorkingDirectory)

@@ -47,7 +47,6 @@ stages:
     - script: |
         git config --global user.email pipeline@demo.com
         git config --global user.name "Pipeline"
-        git pull
         git checkout main
         git commit -a -m "deployment $(Build.BuildNumber)"
         git push origin main 

@@ -33,8 +33,9 @@ stages:
           $outputs = terraform output -json | ConvertFrom-Json
           foreach ($key in $outputs.PSObject.Properties.Name) {
             $value = $outputs.$key.value
-            # Uwaga: Zamień '.' na '_' w nazwach kluczy, jeśli są używane w wyjściach Terraform
             $sanitizedKey = $key -replace '\.', '_'
+            Write-Host $sanitizedKey
+            Write-Host $value
             Write-Host "##vso[task.setvariable variable=$sanitizedKey;isOutput=true]$value"
             echo "published variable $sanitizedKey"
           }

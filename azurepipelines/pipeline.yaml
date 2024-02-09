@@ -51,6 +51,7 @@ stages:
         git branch -a
         git pull 
         git checkout -b main origin/main
+        git pull
         git commit -a -m "deployment $(Build.BuildNumber)"
         git push origin main 
       displayName: push changes

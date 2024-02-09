@@ -52,7 +52,9 @@ stages:
         scriptType: 'pscore'
         scriptLocation: 'inlineScript'
         inlineScript: |
+          Write-Host "test"
           Write-Host "$(container_registry_name)"
+          Write-Host "test"
           az acr login $(container_registry_name)
 
     - task: Docker@2

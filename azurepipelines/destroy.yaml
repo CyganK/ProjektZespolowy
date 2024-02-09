@@ -1,0 +1,28 @@
+trigger:
+- main
+
+resources:
+- repo: self
+
+variables:
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  tag: '$(Build.BuildId)'
+
+stages:
+- stage: Terraform
+  jobs:
+  - job: TerraformJob
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - task: UseTerraform@0
+      inputs:
+        version: $(terraformVersion)
+
+    - script: |
+        terraform init
+        terraform destroy -auto-approve
+      displayName: 'Terraform init, plan and apply'
+      workingDirectory: Terraform
+      
+

@@ -1,0 +1,31 @@
+resource "azurerm_resource_group" "rg" {
+  name     = "Projekt-Zespolowy"
+  location = "West Europe"
+}
+
+resource "azurerm_container_registry" "acr" {
+  name                = "ProjektZespolowyACR"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+  sku                 = "Basic"
+  admin_enabled       = false
+}
+
+
+# Tworzenie instancji Azure Container Instance
+resource "azurerm_kubernetes_cluster" "aks" {
+  name                = "aksCluster"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  dns_prefix          = "aksExample"
+
+  default_node_pool {
+    name       = "default"
+    node_count = 1
+    vm_size    = "Standard_DS2_v2"
+  }
+
+  identity {
+    type = "SystemAssigned"
+  }
+}

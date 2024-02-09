@@ -13,5 +13,9 @@ COPY requirements.txt /app
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir --default-timeout=600 -r requirements.txt
 
+ENV CONNECTION_STRING=""
+ENV CONTAINER_NAME=""
+
+
 # Polecenie, które zostanie uruchomione podczas startu kontenera
 CMD ["python", "run.py"]

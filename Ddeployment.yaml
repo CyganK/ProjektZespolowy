@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ProjektZespolowy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ProjektZespolowy
+  template:
+    metadata:
+      labels:
+        app: ProjektZespolowy
+    spec:
+      containers:
+      - name: ProjektZespolowy
+        image: projektzespolowyacr.azurecr.io/projektzespolowy:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: CONNECTION_STRING
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: CONNECTION_STRING
+        - name: CONTAINER_NAME
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: CONTAINER_NAME

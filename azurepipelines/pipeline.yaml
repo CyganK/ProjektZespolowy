@@ -16,6 +16,8 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
+    - checkout: self
+      persistCredentials: true
     - script: |
         terraform init
         terraform plan -out=tfplan
@@ -46,10 +48,9 @@ stages:
       workingDirectory: $(System.DefaultWorkingDirectory)
 
     - script: |
-        git checkout -b main
         git commit -m "deployment $(Build.BuildNumber)"
         git push 
-      displayName: Add data.txt file
+      displayName: push changes
       workingDirectory: $(System.DefaultWorkingDirectory)
 
     - task: AzureCLI@2

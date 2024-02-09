@@ -5,9 +5,11 @@ resources:
 - repo: self
 
 variables:
+- group: terraform
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
   repo: "projektzespolowy"
+
 
 stages:
 - stage: Terraform
@@ -25,6 +27,11 @@ stages:
         terraform apply -auto-approve tfplan
       displayName: 'Terraform init, plan and apply'
       workingDirectory: Terraform
+      env:
+        ARM_CLIENT_ID: $(ARM_CLIENT_ID)
+        ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
+        ARM_TENANT_ID: $(ARM_TENANT_ID)
+        ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
 
     - task: PowerShell@2
       displayName: 'Set Terraform Outputs as Pipeline Variables'
@@ -44,18 +51,6 @@ stages:
           }
         pwsh: true
 
-    - script: |
-        git config --global user.email pipeline@demo.com
-        git config --global user.name "Pipeline"
-        git fetch
-        git branch -a
-        git pull 
-        git checkout -b main origin/main
-        git pull
-        git commit -a -m "deployment $(Build.BuildNumber)"
-        git push origin main 
-      displayName: push changes
-      workingDirectory: $(System.DefaultWorkingDirectory)
 
     - task: AzureCLI@2
       displayName: Login to ACR

@@ -5,7 +5,7 @@ resource "azurerm_resource_group" "rg" {
 
 # Konto Magazynowe
 resource "azurerm_storage_account" "sa" {
-  name                     = "mojekontomagazynowe"
+  name                     = "ProjektZespolowySA"
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
@@ -14,7 +14,7 @@ resource "azurerm_storage_account" "sa" {
 
 # Kontener Blob
 resource "azurerm_storage_container" "blob_container" {
-  name                  = "mojkontenerblob"
+  name                  = "PZblobContainer"
   storage_account_name  = azurerm_storage_account.sa.name
   container_access_type = "private"
 }

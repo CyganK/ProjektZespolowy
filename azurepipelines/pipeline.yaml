@@ -38,10 +38,6 @@ stages:
           }
         pwsh: true
 
-  - job: Build
-    pool:
-      vmImage: 'ubuntu-latest'
-    steps:
     - task: AzureCLI@2
       displayName: Login to ACR
       inputs:
@@ -58,10 +54,6 @@ stages:
         tags: |
           $(tag)
 
-  - job: Deploy
-    pool:
-      vmImage: 'ubuntu-latest'
-    steps:
     - task: AzureCLI@2
       inputs:
         azureSubscription: ProjektZespolowySC

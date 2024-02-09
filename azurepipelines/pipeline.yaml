@@ -41,6 +41,17 @@ stages:
           }
         pwsh: true
 
+    - script: |
+        git config --global user.email pipeline@demo.com & git config --global user.name "Pipeline"
+      workingDirectory: $(System.DefaultWorkingDirectory)
+
+    - script: |
+        git checkout -b master
+        git commit -m "deployment $(Build.BuildNumber)"
+        git push 
+      displayName: Add data.txt file
+      workingDirectory: $(System.DefaultWorkingDirectory)
+
     - task: AzureCLI@2
       displayName: Login to ACR
       inputs:

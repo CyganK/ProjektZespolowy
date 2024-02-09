@@ -28,8 +28,8 @@ stages:
 
     - task: PowerShell@2
       displayName: 'Set Terraform Outputs as Pipeline Variables'
-      workingDirectory: Terraform
       inputs:
+        workingDirectory: Terraform
         targetType: 'inline'
         script: |
           $outputs = terraform output -json | ConvertFrom-Json

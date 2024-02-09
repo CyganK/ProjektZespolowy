@@ -28,3 +28,5 @@ spec:
             secretKeyRef:
               name: app-secrets
               key: CONTAINER_NAME
+      imagePullSecret:
+      - name: acr-secret

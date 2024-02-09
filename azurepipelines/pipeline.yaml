@@ -25,6 +25,7 @@ stages:
 
     - task: PowerShell@2
       displayName: 'Set Terraform Outputs as Pipeline Variables'
+      name: TfOutput
       inputs:
         workingDirectory: Terraform
         targetType: 'inline'
@@ -39,6 +40,11 @@ stages:
           }
         pwsh: true
 
+  - job: BuildAdnDeploy
+    variables:
+      container_registry_name: $[ dependencies.TerraformJon.outputs['TfOutput.container_registry_name'] ]
+    dependsOn: TerraformJob
+    steps:
     - task: AzureCLI@2
       displayName: Login to ACR
       inputs:

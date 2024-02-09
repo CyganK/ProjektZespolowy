@@ -43,7 +43,7 @@ stages:
           Write-Host "##vso[task.setvariable variable=IsFooBar]$IsFooEqualToBar"
         pwsh: true
 
-    - pwsh: Write-Host $(IsFooBar)
+    - pwsh: Write-Host $(container_registry_name)
 
   - job: BuildAdnDeploy
     variables:

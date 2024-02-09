@@ -35,6 +35,7 @@ stages:
             # Uwaga: Zamień '.' na '_' w nazwach kluczy, jeśli są używane w wyjściach Terraform
             $sanitizedKey = $key -replace '\.', '_'
             echo "##vso[task.setvariable variable=$sanitizedKey;isOutput=true]$value"
+            echo "published variable $sanitizedKey"
           }
         pwsh: true
 

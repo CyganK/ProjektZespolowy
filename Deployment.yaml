@@ -13,10 +13,10 @@ spec:
         app: projektzespolowy
     spec:
       imagePullSecrets:
-      - name: acr-secret-1
+      - name: acr-secret
       containers:
       - name: projektzespolowy
-        image: projektzespolowyacr.azurecr.io/projektzespolowy
+        image: projektzespolowyacr.azurecr.io/projektzespolowy:74
         ports:
         - containerPort: 80
         env:

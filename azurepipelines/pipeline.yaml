@@ -39,17 +39,8 @@ stages:
             Write-Host "##vso[task.setvariable variable=$sanitizedKey]$value"
             echo "published variable $sanitizedKey"
           }
-          $IsFooEqualToBar = "true"
-          Write-Host "##vso[task.setvariable variable=IsFooBar]$IsFooEqualToBar"
         pwsh: true
 
-    - pwsh: Write-Host $(container_registry_name)
-
-  - job: BuildAdnDeploy
-    variables:
-      container_registry_name: $[ dependencies.TerraformJon.outputs['TfOutput.container_registry_name'] ]
-    dependsOn: TerraformJob
-    steps:
     - task: AzureCLI@2
       displayName: Login to ACR
       inputs:

@@ -70,7 +70,7 @@ stages:
     steps:
     - task: AzureCLI@2
       inputs:
-        azureSubscription: 'ProjektZespolowySC'
+        azureSubscription: ProjektZespolowySC
         scriptType: 'bash'
         scriptLocation: 'inlineScript'
         inlineScript: |

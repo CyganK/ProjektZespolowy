@@ -48,7 +48,7 @@ stages:
         scriptType: 'pscore'
         scriptLocation: 'inlineScript'
         inlineScript: |
-          az acr login --name $(container_registry_name) --username $(container_registry_admin_username) --password $(container_registry_admin_password) --tenant "7babbace-799f-4cbd-991a-54446c9b1c8e"
+          az acr login --name $(container_registry_name) --username "ddfd42e1-e9a2-44fb-aa12-036b044748d2" --password "mVd8Q~sQhaEhKfSeTIkPZOm1Yh9pOmdQ2phZzb4N" --tenant "7babbace-799f-4cbd-991a-54446c9b1c8e"
 
     - task: Docker@2
       inputs:

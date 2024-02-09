@@ -46,7 +46,7 @@ stages:
       workingDirectory: $(System.DefaultWorkingDirectory)
 
     - script: |
-        git checkout -b master
+        git checkout -b main
         git commit -m "deployment $(Build.BuildNumber)"
         git push 
       displayName: Add data.txt file

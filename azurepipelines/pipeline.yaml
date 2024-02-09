@@ -41,6 +41,15 @@ stages:
           }
         pwsh: true
 
+    - task: AzureCLI@2
+      displayName: Login to ACR
+      inputs:
+        azureSubscription: ProjektZespolowySC
+        scriptType: 'pscore'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          az acr login --name $(container_registry_name) --username $(container_registry_admin_username) --password $(container_registry_admin_password) --tenant "7babbace-799f-4cbd-991a-54446c9b1c8e"
+
     - task: Docker@2
       inputs:
         repository: $(container_registry_login_server)/$(repo)

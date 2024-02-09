@@ -46,6 +46,7 @@ stages:
         scriptType: 'pscore'
         scriptLocation: 'inlineScript'
         inlineScript: |
+          Write-Host $(container_registry_name)
           az acr login $(container_registry_name)
         env: 
           container_registry_name: $(container_registry_name)

@@ -39,7 +39,10 @@ stages:
             Write-Host "##vso[task.setvariable variable=$sanitizedKey;isOutput=true]$value"
             echo "published variable $sanitizedKey"
           }
+          Write-Host "##vso[task.setvariable variable=test;isOutput=true]"test""
         pwsh: true
+
+    - pwsh: Write-Host $(test)
 
   - job: BuildAdnDeploy
     variables:

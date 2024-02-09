@@ -47,6 +47,8 @@ stages:
         scriptLocation: 'inlineScript'
         inlineScript: |
           az acr login $(container_registry_name)
+        env: 
+          container_registry_name: $(container_registry_name)
     - task: Docker@2
       inputs:
         repository: $(container_registry_login_server)/$(repo)

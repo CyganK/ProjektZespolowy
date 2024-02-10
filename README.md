@@ -8,7 +8,10 @@
 
 Ten projekt to aplikacja do klasyfikacji obrazów, wykorzystująca techniki uczenia głębokiego. Zawiera zestawy danych obrazów rowerów i samochodów, przygotowane do procesów trenowania i testowania modelu sieci neuronowych. Dane zostały pobrane ze strony Kaggle.com
 W ramach projektu zostałe skonfigurowane narzedzie CI/CD Azure Devops oraz Pipeline odpowiedzialny za zarządzanie infrastrukturą oraz infrastruktura na chmurze azure zarządzana za pomocą kodu terraform.
+![Zasoby Azure](images/zasoby.png)
 Cała alpikacja jest skonteneryzowana za pomocą dockera oraz uruchomiona na kubernetesie, po zakończeniu działania wyniki sa publikowane w stora accouncie.
+![wyniki](images/wyniki.png)
+
 
  
 
@@ -79,6 +82,7 @@ Repozytorium składa się z następujących katalogów i plików:
 - AKS - klaster k8s
 
 - Storage Account - Miejsce przechowywania dannych w tym wypadku wyników skryptów
+
 
  
 

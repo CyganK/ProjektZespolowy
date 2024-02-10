@@ -16,7 +16,7 @@ spec:
       - name: acr-secret
       containers:
       - name: projektzespolowy
-        image: projektzespolowyacr.azurecr.io/projektzespolowy:##{tag}}}
+        image: projektzespolowyacr.azurecr.io/projektzespolowy:##{tag}##
         ports:
         - containerPort: 80
         env:

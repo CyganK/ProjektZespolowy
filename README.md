@@ -1,4 +1,4 @@
-# Projekt Deep Learning - Konrad Cygan - Klasyfikacja Obrazów
+# Projekt Zespołowy - Konrad Cygan - Maciej Biegalski
 
  
 

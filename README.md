@@ -7,6 +7,8 @@
  
 
 Ten projekt to aplikacja do klasyfikacji obrazów, wykorzystująca techniki uczenia głębokiego. Zawiera zestawy danych obrazów rowerów i samochodów, przygotowane do procesów trenowania i testowania modelu sieci neuronowych. Dane zostały pobrane ze strony Kaggle.com
+W ramach projektu zostałe skonfigurowane narzedzie CI/CD Azure Devops oraz Pipeline odpowiedzialny za zarządzanie infrastrukturą oraz infrastruktura na chmurze azure zarządzana za pomocą kodu terraform.
+Cała alpikacja jest skonteneryzowana za pomocą dockera oraz uruchomiona na kubernetesie, po zakończeniu działania wyniki sa publikowane w stora accouncie.
 
  
 
@@ -18,17 +20,17 @@ Repozytorium składa się z następujących katalogów i plików:
 
  
 
-- `Car-Bike`: Katalogi zawierające obrazy do procesów trenowania i testowania umieszczone w folderze Car-Bike_dataset pobranym z podanej strony.
+- `Data`: Katalogi zawierające obrazy do procesów trenowania i testowania umieszczone w folderze Car-Bike_dataset pobranym z podanej strony.
 
-- `Dataset`: Podzielone zbiory danych do trenowania i testowania dla cros vall.
+- `App`:  Folder zawierający aplikację w pythonie
 
-- `Dataset_5_percent`: Mniejsze wersje zbiorów danych, zawierające 5% oryginalnych danych.
+- `azurepipelines`: Pipeline'y CI/CD odpowiedzialne za uruchomienie aplikacji oraz stworzenie infrastruktury
 
-- `Dataset_Podzielona`: Specjalnie podzielone zbiory danych do eksperymentów dla cros vall.
+- `Terraform`: Folder zawierający konfigurację IaC platformy Azure
 
-- `Dataset_Siec_Podzielona`: Specjalnie podzielone zbiory danych do eksperymentów dla sieci konwolucyjnej.
+- `Dockerfile`: Dockerfile budujący obraz aplikacji.
 
-- `Dataset_Siec`: Zbiory danych dostosowane do trenowania sieci konwolucyjnej.
+- `Requirements.txt`: Lista bibliotek python do zainstalowania.
 
 - Skrypty Pythona:
 
@@ -60,6 +62,24 @@ Repozytorium składa się z następujących katalogów i plików:
 
 - PyTorch (dokładne wersje zależności są określone w pliku `requirements.txt`)
 
+- Azure
+
+- Terraform
+
+- Azure Devops YAML Pipeline
+
+- Docker
+
+- k8s
+
+## Infrastruktura
+
+- Azure Container Registry - przechowywanie obrazów 
+
+- AKS - klaster k8s
+
+- Storage Account - Miejsce przechowywania dannych w tym wypadku wyników skryptów
+
  
 
 ## Wymagania
@@ -78,9 +98,19 @@ Repozytorium składa się z następujących katalogów i plików:
 
 - numpy
 
- 
+- azure-storage-blob
 
-## Uruchomienie
+- Docker
+
+- K8s
+ 
+## Uruchomienie Aplikacji na k8s
+
+Uruchomienie aplikacji jest w pełni zautomatyzowane. Należu do folderu  `Data` zaimportować zbiór danych oraz wypchnąc zmiany do repo. 
+Skonfigurowane narzędzia CI/CD automatycznie uruchomią aplikację na uprzednio stworzonym klastrze.
+
+
+## Uruchomienie Programu Aplikacji
 
  
 

@@ -6,9 +6,12 @@ resources:
 
 variables:
 - group: terraform
-  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$(Build.BuildId)'
-  repo: "projektzespolowy"
+- name: dockerfilePath
+  value: '$(Build.SourcesDirectory)/Dockerfile'
+- name: tag
+  value: '$(Build.BuildId)'
+- name: repo
+  value: "projektzespolowy"
 
 
 stages:

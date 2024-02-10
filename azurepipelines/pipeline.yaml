@@ -73,6 +73,19 @@ stages:
         tags: |
           $(tag)
 
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: |
+          $filePath = "$(Build.SourcesDirectory)/Deployment.yaml"
+          $tokenToReplace = "##{tag}##"
+          $replacementValue = "$(tag)"
+
+          (Get-Content $filePath -Raw) -replace [regex]::Escape($tokenToReplace), $replacementValue | Set-Content $filePath
+
+          Write-Host "Token $tokenToReplace has been replaced with $replacementValue in file $filePath"
+      displayName: 'Replace token in file'
+
     - task: AzureCLI@2
       inputs:
         azureSubscription: ProjektZespolowySC
